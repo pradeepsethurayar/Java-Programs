@@ -1,0 +1,15 @@
+import java.util.Scanner;
+class Main {
+
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a String : ");
+        String s = sc.nextLine();
+        System.out.println("Even length words in the given String : ");
+        for (String w : s.split(" ")){
+            if (w.length() % 2 == 0)
+                System.out.println(w);
+        }
+    }
+}
