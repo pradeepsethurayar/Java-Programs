@@ -1,0 +1,30 @@
+public class Solution {
+    public int romanToInt(String s) {
+        // Map the Roman numerals to their integer values
+        int[] romanValues = new int[256];  // Ascii values go up to 255
+        romanValues['I'] = 1;
+        romanValues['V'] = 5;
+        romanValues['X'] = 10;
+        romanValues['L'] = 50;
+        romanValues['C'] = 100;
+        romanValues['D'] = 500;
+        romanValues['M'] = 1000;
+        
+        int total = 0;
+        int prevValue = 0;
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+            int currentValue = romanValues[s.charAt(i)];
+
+            if (currentValue < prevValue) {
+                total -= currentValue;
+            } else {
+                total += currentValue;
+            }
+
+            prevValue = currentValue;
+        }
+
+        return total;
+    }
+}
